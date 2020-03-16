@@ -34,10 +34,7 @@ function altRows(id){
         }
     }
 }
-function jump(page){
-    var name = "湖北";
-    window.location.href=page+".jsp?name="+name;
-} 
+
 window.onload=function(){
     altRows('alternatecolor');
 }
@@ -89,9 +86,11 @@ table.altrowstable td {
         <p style="font-size:35px">新冠肺炎疫情地图</p>
     </div>
     <%
+        request.setCharacterEncoding("UTF-8");
         String basePath="D:/log/";
         String[] list=new File(basePath).list();
-        String name = "湖北";      
+        String name = request.getParameter("name");
+        out.println(name);    
         int i = 0;
         int num = 0;        
         String[] confirm = new String[15];
@@ -141,7 +140,7 @@ table.altrowstable td {
            <table class="altrowstable" id="alternatecolor" style="width:600px;text-align: center;">
             <tr>
                 <td>现存确诊<br/><p style="color:#F08080"><%=confirm[i-1]%></p></td>
-                <td>累计确诊<br><p style="color:#A52A2A"><%=(Integer.parseInt(confirm[i-1])+Integer.parseInt(cure[i-1]))%></p></td>
+                <td>累计确诊<br><p style="color:#A52A2A"><%=(confirm[i-1]+cure[i-1])%></p></td>
                 <td>累计治愈<br><p style="color:#32CD32"><%=cure[i-1]%></p></td>
                 <td>累计死亡<br><p style="color:#696969"><%=dead[i-1]%></p></td>
             </tr>
