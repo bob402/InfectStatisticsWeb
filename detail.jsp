@@ -133,11 +133,10 @@ table.altrowstable td {
     </div>
     
      <div style="text-align:;"> 
-        <p style="color:#2F4F4F;font-size:25px;"><%=name %>&nbsp;&nbsp;&nbsp;新增确诊趋势</p>   
+        <p style="color:#2F4F4F;font-size:25px;"><%=name %>&nbsp;&nbsp;&nbsp;新增确诊趋势</p> 
         <form action="detail2.jsp" method="post">
         <button class="ui button">选择日期</button> 
         <select name="date">
-            <option value="2020-01-19">2020-01-19</option>
             <option value="2020-01-20">2020-01-20</option>
             <option value="2020-01-21">2020-01-21</option>
             <option value="2020-01-22">2020-01-22</option>
@@ -153,9 +152,10 @@ table.altrowstable td {
             <option value="2020-02-01">2020-02-01</option>
             <option value="2020-02-02">2020-02-02</option>
         </select>
-        <input type="submit" class="ui button" value="确定" />
+        <input type="text" name="name" value="<%=name %>" placeholder="请输入省份">
+        <button type="submit" >确定</button>
         </form>  
-          
+         
     </div>
  
     <div id="main" style="background-color:#F5F5F5">
@@ -201,13 +201,13 @@ option = {
             name: '新增确诊',
             type: 'line',
             stack: '总量',
-            data: ["<%=confirm[0]%>", "<%=confirm[1]%>", "<%=confirm[2]%>", "<%=confirm[3]%>", "<%=confirm[4]%>", "<%=confirm[5]%>", "<%=confirm[6]%>","<%=confirm[7]%>","<%=confirm[8]%>","<%=confirm[9]%>","<%=confirm[10]%>","<%=confirm[11]%>","<%=confirm[12]%>","<%=confirm[13]%>","<%=confirm[14]%>"]
+            data: ["<%=confirm[0]%>", "<%=(confirm[1]-confirm[0])%>", "<%=(confirm[2]-confirm[1])%>", "<%=(confirm[3]-confirm[2])%>", "<%=(confirm[4]-confirm[3])%>", "<%=(confirm[5]-confirm[4])%>", "<%=(confirm[6]-confirm[5])%>","<%=(confirm[7]-confirm[6])%>","<%=(confirm[8]-confirm[7])%>","<%=(confirm[9]-confirm[8])%>","<%=(confirm[10]-confirm[9])%>","<%=(confirm[11]-confirm[10])%>","<%=(confirm[12]-confirm[11])%>","<%=(confirm[13]-confirm[12])%>","<%=(confirm[14]-confirm[13])%>"]
         },
         {
             name: '新增疑似',
             type: 'line',
             stack: '总量',
-            data: ["<%=infected[0]%>", "<%=infected[1]%>", "<%=infected[2]%>", "<%=infected[3]%>", "<%=infected[4]%>", "<%=infected[5]%>", "<%=infected[6]%>","<%=infected[7]%>","<%=infected[8]%>","<%=infected[9]%>","<%=infected[10]%>","<%=infected[11]%>","<%=infected[12]%>","<%=infected[13]%>","<%=infected[14]%>"]
+            data: ["<%=infected[0]%>", "<%=(infected[1]-infected[0])%>", "<%=(infected[2]-infected[1])%>", "<%=(infected[3]-infected[2])%>", "<%=(infected[4]-infected[3])%>", "<%=(infected[5]-infected[4])%>", "<%=(infected[6]-infected[5])%>","<%=(infected[7]-infected[6])%>","<%=(infected[8]-infected[7])%>","<%=(infected[9]-infected[8])%>","<%=(infected[10]-infected[9])%>","<%=(infected[11]-infected[10])%>","<%=(infected[12]-infected[11])%>","<%=(infected[13]-infected[12])%>","<%=(infected[14]-infected[13])%>"]
         },
         {
             name: '累计治愈',
